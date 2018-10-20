@@ -176,8 +176,8 @@ include $(BUILD_SYSTEM)/product.mk
 include $(BUILD_SYSTEM)/device.mk
 
 # A Liquid build needs only the Liquid product makefiles.
-ifneq ($(LIQUID_BUILD),)
-  all_product_configs := $(shell find device -path "*/$(LIQUID_BUILD)/liquid.mk")
+ifneq ($(VENOM_BUILD),)
+  all_product_configs := $(shell find device -path "*/$(VENOM_BUILD)/venom.mk")
 else
   ifneq ($(strip $(TARGET_BUILD_APPS)),)
   # An unbundled app build needs only the core product makefiles.
@@ -188,9 +188,9 @@ else
   # files in the tree.
   all_product_configs := $(get-all-product-makefiles)
   endif # TARGET_BUILD_APPS
-endif # LIQUID_BUILD
+endif # VENOM_BUILD
 
-ifeq ($(LIQUID_BUILD),)
+ifeq ($(VENOM_BUILD),)
 all_named_products :=
 
 # Find the product config makefile for the current product.
